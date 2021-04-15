@@ -3,7 +3,7 @@ import { MdAddShoppingCart } from 'react-icons/md'
 
 import { ProductList } from './styles'
 import { api } from '../../services/api'
-import { formatPrice } from '../../util/format'
+import { formatCurrency } from '../../util/format'
 import { useCart } from '../../hooks/useCart'
 
 interface Product {
