@@ -1,24 +1,23 @@
-import React from 'react';
 import {
   MdDelete,
   MdAddCircleOutline,
   MdRemoveCircleOutline,
-} from 'react-icons/md';
+} from 'react-icons/md'
 
-// import { useCart } from '../../hooks/useCart';
-// import { formatPrice } from '../../util/format';
-import { Container, ProductTable, Total } from './styles';
+// import { useCart } from '../../hooks/useCart'
+// import { formatPrice } from '../../util/format'
+import { Container, ProductTable, Total } from './styles'
 
 interface Product {
-  id: number;
-  title: string;
-  price: number;
-  image: string;
-  amount: number;
+  id: number
+  title: string
+  price: number
+  image: string
+  amount: number
 }
 
-const Cart = (): JSX.Element => {
-  // const { cart, removeProduct, updateProductAmount } = useCart();
+export const Cart = (): JSX.Element => {
+  // const { cart, removeProduct, updateProductAmount } = useCart()
 
   // const cartFormatted = cart.map(product => ({
   //   // TODO
@@ -113,7 +112,5 @@ const Cart = (): JSX.Element => {
         </Total>
       </footer>
     </Container>
-  );
-};
-
-export default Cart;
+  )
+}
