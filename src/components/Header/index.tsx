@@ -3,7 +3,7 @@ import { MdShoppingBasket } from 'react-icons/md'
 
 import logo from '../../assets/images/logo.svg'
 import { Container, Cart } from './styles'
-import { useCart } from '../../hooks/useCart'
+import { useCart } from '../../contexts/useCart'
 
 export const Header = (): JSX.Element => {
   // const { cart } = useCart()

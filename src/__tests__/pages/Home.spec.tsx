@@ -3,13 +3,13 @@ import { waitFor, render, fireEvent } from '@testing-library/react';
 
 import { api } from '../../services/api';
 import Home from '../../pages/Home';
-import { useCart } from '../../hooks/useCart';
+import { useCart } from '../../contexts/useCart';
 
 const apiMock = new AxiosMock(api);
 const mockedAddProduct = jest.fn();
 const mockedUseCartHook = useCart as jest.Mock;
 
-jest.mock('../../hooks/useCart');
+jest.mock('../../contexts/useCart');
 
 describe('Home Page', () => {
   beforeAll(() => {

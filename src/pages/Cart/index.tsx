@@ -4,8 +4,8 @@ import {
   MdRemoveCircleOutline,
 } from 'react-icons/md'
 
-// import { useCart } from '../../contexts/useCart'
 // import { formatCurrency } from '../../util/format'
+import { useCart } from '../../contexts/useCart'
 import { Container, ProductTable, Total } from './styles'
 
 interface Product {

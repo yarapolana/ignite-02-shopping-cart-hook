@@ -4,7 +4,7 @@ import { MdAddShoppingCart } from 'react-icons/md'
 import { ProductList } from './styles'
 import { api } from '../../services/api'
 import { formatCurrency } from '../../util/format'
-import { useCart } from '../../hooks/useCart'
+import { useCart } from '../../contexts/useCart'
 
 interface Product {
   id: number
