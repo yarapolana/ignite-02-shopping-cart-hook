@@ -34,35 +34,19 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
     return []
   })
 
-  // useEffect(() => {
-  //   localStorage.clear()
-
-  // }, [])
-
   const addProduct = async (productId: number) => {
     try {
-      const { data: productData } = await getProductById(productId)
-
-      if (!productData) throw Error('Product does not exist')
-
       const { data: { amount: currentStock } } = await getStockByProductId(productId)
 
-      const product = cart.find(product => product.id === productId)
+      const product = cart.find(cartProduct => cartProduct.id === productId)
 
-      if (product && product.amount >= currentStock) {
-        throw new Error('Quantidade solicitada fora de estoque')
-      }
+      if (product && product.amount <= currentStock) {
+        updateProductAmount({productId, amount: product.amount + 1})
+      } else if (!product && currentStock > 0) {
+        const { data: productData } = await getProductById(productId)
 
-      if (product) {
-        const updatedCart = cart.map(cartProduct => cartProduct.id === productId ? {
-          ...product,
-          amount: product.amount + 1
-        } : cartProduct)
+        if (!productData) throw Error('Product does not exist')
 
-        localStorage.setItem(SHOES_STORAGE, JSON.stringify(updatedCart))
-
-        setCart(updatedCart)
-      } else {
         const newProduct = {
           ...productData,
           amount: 1,
@@ -73,6 +57,8 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
         localStorage.setItem(SHOES_STORAGE, JSON.stringify(updatedCart))
 
         setCart(updatedCart)
+      } else {
+        throw new Error('Quantidade solicitada fora de estoque')
       }
     } catch(err) {
       toast.error(err.message.includes('estoque') ? err.message : 'Erro na adição do produto')
