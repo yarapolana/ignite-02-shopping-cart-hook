@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 import { ReactNode } from 'react';
-import { Header } from '../../components/Header';
+import Header from '../../components/Header';
 
 jest.mock('react-router-dom', () => {
   return {
@@ -8,7 +8,7 @@ jest.mock('react-router-dom', () => {
   };
 });
 
-jest.mock('../../contexts/useCart', () => {
+jest.mock('../../hooks/useCart', () => {
   return {
     useCart: () => ({
       cart: [

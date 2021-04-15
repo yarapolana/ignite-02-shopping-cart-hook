@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { darken, lighten } from 'polished';
+import styled from 'styled-components'
+import { darken, lighten } from 'polished'
 
 export const Container = styled.div`
   padding: 30px;
@@ -27,7 +27,7 @@ export const Container = styled.div`
       }
     }
   }
-`;
+`
 
 export const ProductTable = styled.table`
   width: 100%;
@@ -95,7 +95,7 @@ export const ProductTable = styled.table`
       }
     }
   }
-`;
+`
 
 export const Total = styled.div`
   display: flex;
@@ -110,4 +110,4 @@ export const Total = styled.div`
     font-size: 28px;
     margin-left: 5px;
   }
-`;
+`

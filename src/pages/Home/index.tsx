@@ -4,7 +4,7 @@ import { MdAddShoppingCart } from 'react-icons/md'
 import { ProductList } from './styles'
 import { api } from '../../services/api'
 import { formatCurrency } from '../../util/format'
-import { useCart } from '../../contexts/useCart'
+import { useCart } from '../../hooks/useCart'
 
 interface Product {
   id: number
@@ -21,7 +21,7 @@ interface CartItemsAmount {
   [key: number]: number
 }
 
-export const Home = (): JSX.Element => {
+const Home = (): JSX.Element => {
   const [products, setProducts] = useState<ProductFormatted[]>([])
   const { addProduct, cart } = useCart()
 
@@ -79,3 +79,5 @@ export const Home = (): JSX.Element => {
     </ProductList>
   )
 }
+
+export default Home

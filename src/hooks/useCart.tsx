@@ -1,7 +1,6 @@
-import { createContext, ReactNode, useContext, useEffect, useState } from 'react'
+import { createContext, ReactNode, useContext, useState } from 'react'
 import { toast } from 'react-toastify'
 import { SHOES_STORAGE } from '../constants/storage'
-import { api } from '../services/api'
 import { getProductById } from '../services/products'
 import { getStockByProductId } from '../services/stock'
 import { Product } from '../types'
@@ -42,13 +41,14 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
 
   const addProduct = async (productId: number) => {
     try {
-      const product = cart.find(product => product.id === productId)
-
-      const { data: { amount: currentStock } } = await getStockByProductId(productId)
       const { data: productData } = await getProductById(productId)
 
       if (!productData) throw Error('Product does not exist')
-      
+
+      const { data: { amount: currentStock } } = await getStockByProductId(productId)
+
+      const product = cart.find(product => product.id === productId)
+
       if (product && product.amount >= currentStock) {
         throw new Error('Quantidade solicitada fora de estoque')
       }

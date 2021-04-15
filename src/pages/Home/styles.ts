@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { darken } from 'polished';
+import styled from 'styled-components'
+import { darken } from 'polished'
 
 export const ProductList = styled.ul`
   display: grid;
@@ -66,4 +66,4 @@ export const ProductList = styled.ul`
       }
     }
   }
-`;
+`

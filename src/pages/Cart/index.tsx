@@ -4,7 +4,7 @@ import {
   MdRemoveCircleOutline,
 } from 'react-icons/md'
 
-import { useCart } from '../../contexts/useCart'
+import { useCart } from '../../hooks/useCart'
 import { formatCurrency } from '../../util/format'
 import { Container, ProductTable, Total } from './styles'
 
@@ -16,7 +16,7 @@ interface Product {
   amount: number
 }
 
-export const Cart = (): JSX.Element => {
+const Cart = (): JSX.Element => {
   const { cart, removeProduct, updateProductAmount } = useCart()
 
   const cartFormatted = cart.map(product => ({
@@ -118,3 +118,5 @@ export const Cart = (): JSX.Element => {
     </Container>
   )
 }
+
+export default Cart

@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 export const Container = styled.header`
   display: flex;
@@ -14,7 +14,7 @@ export const Container = styled.header`
       opacity: 0.7;
     }
   }
-`;
+`
 
 export const Cart = styled(Link)`
   display: flex;
@@ -35,4 +35,4 @@ export const Cart = styled(Link)`
       color: #999;
     }
   }
-`;
+`
